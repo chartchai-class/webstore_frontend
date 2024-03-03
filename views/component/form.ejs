@@ -39,10 +39,12 @@
     e.preventDefault();
     const div = document.createElement("div");
     div.textContent = "Form submitted successfully!";
-    div.classList.add("show");
+   
+    div.classList.add("show-text");
     form.appendChild(div);
     setTimeout(() => {
       form.reset();
+      div.classList.remove("show-text");
       div.classList.add("none");
     }, 3000);
   });
