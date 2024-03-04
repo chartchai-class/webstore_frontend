@@ -77,10 +77,4 @@ span {
  border: none;
  margin-left: 4px;
 }
-.navbar-toggler-custom {
-    border: none;
-}
 
-.navbar-toggler-custom.collapsed {
-    background-color: #FDB9F3;
-}
