@@ -1,58 +1,80 @@
 body {
-    background-image: url('../../assets/images/GradientBackground.svg');
-    font-family: 'Montserrat';
-  }
+  background-image: url("../../assets/images/GradientBackground.svg");
+  font-family: "Montserrat";
+  
+}
 #map {
-    margin-top: 30px;
-height: 450px;
-width: 100%;
+  margin-top:30px;
+  height: 450px;
+  width: 100%;
+ 
 }
 .tag {
-background-color: #4285F4;
-border-radius: 8px;
-color: #FFFFFF;
-font-size: 14px;
-padding: 10px 15px;
-position: relative;
+  background-color: #4285f4;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 15px;
+  position: relative;
 }
 
-.buttpurple{
-    width: 100%;
-    margin: 3px;
-    padding: 5 px;
-    color: antiquewhite;
-    border: none;
-    align-items: center;
-    background-color: #3D388B;
+.buttpurple {
+  width: 100%;
+  padding-top: 15 px;
+  padding-top: 20 px;
+  color: antiquewhite;
+
+  border: none;
+  align-items: center;
+  background-color: #3d388b;
 }
-.contactBox{
-    max-width: 70%;
-    height: 400px;
-    border-radius: 5px;
+.contactBox {
+  max-width: 70%;
+ border-radius: 5px;
 }
-span{
-    color: #3D388B;
-    font-weight: bold;
+span {
+  color: #3d388b;
+  font-weight: bold;
 }
-.show{
-    display:block;
-    padding: 10px;
-    background-color: green;
-    color: antiquewhite;
-    border-radius: 30px;
-    
+.show-text {
+  display: block;
+  padding: 10px;
+  background-color: green;
+  color: antiquewhite;
+  border-radius: 30px;
 }
 .none{
     display:none;
 }
+
 @media (min-width: 1024px) {
-    .map-container {
-        position: absolute !important;
-    }
+  .map-container {
+    position: absolute !important;
+    margin-left: 40px;
+    
+  }
 }
 
 @media (min-width: 700px) and (max-width: 1023px) {
-    .map-container {
-        position: relative !important;
-    }
+  .map-container {
+    position: relative !important;
+  
+   
+  }
 }
+.customSearchBar{
+    display: flex;
+    border-bottom: #3d388b solid 3px;
+
+}
+.customSearchBarLen{
+    border: none;
+    background: none;
+    margin-bottom: 5px;;
+
+}
+.customSearchBartext{
+ border: none;
+ margin-left: 4px;
+}
+
