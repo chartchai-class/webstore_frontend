@@ -34,12 +34,7 @@ app.get('/addtocart',async (req,res)=>{
     const result = await addToCart.getAllDataInBill();
     res.render('myCart',{billinfos:result})
 })
-app.post('/updatecart', (req, res) => {
-    const { cartItems } = req.body;
-    // Process the cartItems data as needed
-    console.log('Received cartItems:', cartItems);
-    
-  });
+
   
 
 app.listen(port,()=>{

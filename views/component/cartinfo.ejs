@@ -20,15 +20,15 @@
         <% if (billinfos && billinfos.length > 0) { %> <%
         billinfos[0].forEach((info) => { %>
         <tr>
-          <td><%= info.bookCover %></td>
+          <td><img src="http://localhost:5001/<%= info.bookCover %>" width="100px"></td>
           <td><%= info.bookTitle %></td>
           <td>
             <select
               class="form-select quantity-select"
               aria-label="Default select example" name="cartItems[<%= info.bookId %>]"
             >
-              <option value="<%= info.quantity %>"><%= info.quantity %></option>
-              <option value="1">1</option>
+              <option value=""></option>
+              <option value="1" >1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -96,10 +96,13 @@
       </div>
       <div class="row ">
           <div class="col-12 text-center p-2 mt-4">
-              <button class=" customBut">Checkout</button>
+              <button class="customBut">Checkout</button>
           </div>
       </div>
   </form>
+  <div class="confirm none" style="color:purple">
+    <h3> Your order is waiting for confirmation!!</h3>
+  </div>
 </div>
 
   </div>
@@ -149,6 +152,12 @@ deleteButtons.forEach((button) => {
       updateTotal();
     });
   });
+  const checkoutBtn = document.querySelector('.customBut')
+  const confirm = document.querySelector('.confirm')
+  checkoutBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    confirm.classList.remove('none');
+  })
 
   function updateTotal() {
     let total = 0;
