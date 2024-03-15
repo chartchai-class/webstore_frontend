@@ -45,8 +45,11 @@
             </li>
             <% categories.forEach(category => { %>
             <li>
-              <a href="/categories/<%= category.id %>" class="dropdown-item">
-                <%= category.category_name %>
+              <a
+                href="/categories/<%= category.categoryId %>"
+                class="dropdown-item"
+              >
+                <%= category.categoryName%>
               </a>
             </li>
             <% }) %>
