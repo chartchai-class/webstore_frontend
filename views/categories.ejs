@@ -1,0 +1,129 @@
+<div class="header">
+  <h1>Explore Categories</h1>
+</div>
+
+<div class="book-nav">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <% categories.forEach(category => { %>
+    <li class="nav-item me-3" role="presentation">
+      <button
+        class="nav-link active"
+        id="pills-home-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-home"
+        type="button"
+        role="tab"
+        aria-controls="pills-home"
+        aria-selected="true"
+      >
+        <%= category.categoryName %>
+      </button>
+    </li>
+
+    <% }) %>
+  </ul>
+</div>
+
+<div class="category-body container">
+  <h1 class="text-center">Novels</h1>
+  <p class="text-center">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum fugit
+    reiciendis quae dolorem odio repudiandae magni sequi, sunt consequuntur
+    praesentium!
+  </p>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div
+      class="tab-pane fade show active"
+      id="pills-home"
+      role="tabpanel"
+      aria-labelledby="pills-home-tab"
+      tabindex="0"
+    >
+      <div class="row m-4">
+        <div class="col-lg-1"></div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="book-card">
+            <img
+              src="../assets/images/n5.jpg"
+              alt=""
+              class="bookimg d-block mx-auto"
+            />
+            <div class="book-content mt-3">
+              <h4 class="price">฿100</h4>
+              <p class="title">How to cat a monster</p>
+              <p class="author">Adam Wallet</p>
+              <a href="#" class="cart">ADD TO CART</a>
+              <i class="bi bi-heart ms-2"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="book-card">
+            <img
+              src="../assets/images/n5.jpg"
+              alt=""
+              class="bookimg d-block mx-auto"
+            />
+            <div class="book-content mt-3">
+              <h4 class="price">฿100</h4>
+              <p class="title">How to cat a monster</p>
+              <p class="author">Adam Wallet</p>
+              <a href="#" class="cart">ADD TO CART</a>
+              <i class="bi bi-heart ms-2"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="book-card">
+            <img
+              src="../assets/images/n5.jpg"
+              alt=""
+              class="bookimg d-block mx-auto"
+            />
+            <div class="book-content mt-3">
+              <h4 class="price"><span>฿200</span> &nbsp;฿100</h4>
+              <p class="title">How to cat a monster</p>
+              <p class="author">Adam Wallet</p>
+              <a href="#" class="cart">ADD TO CART</a>
+              <i class="bi bi-heart ms-2"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="book-card">
+            <img
+              src="../assets/images/n5.jpg"
+              alt=""
+              class="bookimg d-block mx-auto"
+            />
+            <div class="book-content mt-3">
+              <h4 class="price">฿100</h4>
+              <p class="title">How to cat a monster</p>
+              <p class="author">Adam Wallet</p>
+              <a href="#" class="cart">ADD TO CART</a>
+              <i class="bi bi-heart ms-3"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="card book-card">
+            <img
+              src="../assets/images/n5.jpg"
+              alt=""
+              class="bookimg d-block mx-auto"
+            />
+            <div class="book-content mt-3 card-body">
+              <h4 class="price">฿100</h4>
+              <p class="title">How to cat a monster</p>
+              <p class="author">Adam Wallet</p>
+              <a href="#" class="cart">ADD TO CART</a>
+              <i class="bi bi-heart ms-3"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
