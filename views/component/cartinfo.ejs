@@ -57,7 +57,7 @@
         <tr>
           <td colspan="2"></td>
           <td class="text-center">
-            <button class="btn btn-outline-primary">Continue Shopping</button>
+            <button type="submit" class="btn btn-outline-primary continue-btn">Continue Shopping</button>
           </td>
           <td>
             <button type="submit" class="btn btn-primary update-btn" >
@@ -119,12 +119,18 @@
   const updatebtn = document.querySelector(".update-btn");
   const subtotal=document.querySelector('.subtotal')
   const total=document.querySelector('.total')
+  const continueBtn = document.querySelector(".continue-btn");
 
 
   updatebtn.addEventListener('click',(e)=>{
     e.preventDefault();
    subtotal.textContent = document.getElementById("total").innerText;;
    total.textContent =   document.getElementById("total").innerText;;
+  })
+  continueBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+    window.location.href = '/';
+   
   })
 
 deleteButtons.forEach((button) => {
@@ -156,7 +162,11 @@ deleteButtons.forEach((button) => {
   const confirm = document.querySelector('.confirm')
   checkoutBtn.addEventListener('click',(e)=>{
     e.preventDefault();
+    if (total.innerText !== '0') {
     confirm.classList.remove('none');
+  } else {
+    alert("You need to update the cart!")
+  } 
   })
 
   function updateTotal() {
