@@ -24,6 +24,7 @@ pool.getConnection((err, connection) => {
   } else {
     console.log("Connection failed! ", err.message);
   }
+
 });
 
 module.exports = pool;

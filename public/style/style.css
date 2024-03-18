@@ -146,7 +146,7 @@ span {
 }
 
 .title{
-  font-size: ;
+  font-size: 16px;
 }
 /* Header */
 .header{
@@ -207,4 +207,13 @@ span {
 .main{
   background-color: #ffffff;
   padding: 40px 0;
+}
+.customBut{
+  width:200px;
+  height:50px;
+  background-color: #625CB8;
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+  padding: 3px;
 }

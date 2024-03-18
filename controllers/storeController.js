@@ -1,10 +1,28 @@
 const CategoryModel = require("../model/categoryModel");
 const BookModel = require("../model/bookModel");
 const BillHistoryModel = require("../model/billHistoryModel");
+const addToCartDB = require("../model/sale_HistoryDB");
 
 const categoryModel = new CategoryModel();
 const bookModel = new BookModel();
 const billHistoryModel = new BillHistoryModel();
+
+exports.getCart = async (req, res) => {
+  console.log("getCart controller function called.");
+
+  try {
+    const categories = await categoryModel.getAllCategories();
+    const result = await addToCartDB.getAllDataInBill();
+
+    res.render("component/cartinfo", {
+      billinfos: result,
+      categories: categories,
+    });
+  } catch (error) {
+    console.error("Error fetching data from the database:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 
 exports.view = async (req, res) => {
   try {

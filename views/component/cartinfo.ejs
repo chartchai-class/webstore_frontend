@@ -1,0 +1,186 @@
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-7">
+     
+<div class="container mt-4">
+  <form >
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="background-color: #3d388b; color: white">Cover</th>
+
+          <th style="background-color: #3d388b; color: white">Title</th>
+          <th style="background-color: #3d388b; color: white">Quantity</th>
+          <th style="background-color: #3d388b; color: white">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var total=0 %> 
+        <% console.log("billinfos",billinfos) %>
+        <% if (billinfos && billinfos.length > 0) { %> <%
+        billinfos.forEach((info) => { %>
+        <tr>
+          <td><img src="http://localhost:5001/<%= info.bookCover %>" width="100px"></td>
+          <td><%= info.bookTitle %></td>
+          <td>
+            <select
+              class="form-select quantity-select"
+              aria-label="Default select example" name="cartItems[<%= info.bookId %>]"
+            >
+              <option value=""></option>
+              <option value="1" >1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+          <td>
+            <span class="item-total"
+              ><%= info.quantity * info.billPrice %></span
+            >
+            <button class="btn delete-btn" >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+
+        <% }) %> <% } else { %>
+        <tr>
+          <td colspan="3">No data available</td>
+        </tr>
+        <% } %>
+        <tr>
+          <td class="text-center" colspan="3">Total:</td>
+          <td id="total"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td class="text-center">
+            <button type="submit" class="btn btn-outline-primary continue-btn">Continue Shopping</button>
+          </td>
+          <td>
+            <button type="submit" class="btn btn-primary update-btn" >
+              Update Cart
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+      </div>
+ 
+  <div class="col-lg-4">
+      
+<div class="container-fluid mt-4">
+   
+  <% var total = 0; %>
+  <form  calss="text-center"style="background-color: #3d388b; color: white">
+      <h4 class="text-center mt-2 pt-2">Order Summary</h4>
+      <div class="row px-3 mt-2">
+          <div class="col-lg-6">
+              Sub-total
+          </div>
+          <div class="col-lg-6 subtotal">
+              
+          </div>
+      </div>
+      <div class="row px-3 mt-2">
+          <div class="col-6">
+              Total
+          </div>
+          <div class="col-6 total">
+              <%= total %>
+          </div>
+      </div>
+      <div class="row ">
+          <div class="col-12 text-center p-2 mt-4">
+              <button class="customBut">Checkout</button>
+          </div>
+      </div>
+  </form>
+  <div class="confirm none" style="color:purple">
+    <h3> Your order is waiting for confirmation!!</h3>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+
+
+<script>
+  const quantitySelects = document.querySelectorAll(".quantity-select");
+  const itemTotal = document.querySelector(".item-total");
+  const initialprice = itemTotal.innerText;
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  const updatebtn = document.querySelector(".update-btn");
+  const subtotal=document.querySelector('.subtotal')
+  const total=document.querySelector('.total')
+  const continueBtn = document.querySelector(".continue-btn");
+
+
+  updatebtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+   subtotal.textContent = document.getElementById("total").innerText;;
+   total.textContent =   document.getElementById("total").innerText;;
+  })
+  continueBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+    window.location.href = '/';
+   
+  })
+
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    this.parentElement.parentElement.remove();
+    console.log("deleted row");
+    updateTotal(); 
+  });
+});
+
+  quantitySelects.forEach((select) => {
+    select.addEventListener("change", function () {
+      const selectedQuantity = parseInt(this.value); //2
+      const itemPrice = parseFloat(initialprice); //13.66
+      //  console.log("initialPrice: " ,this.parentNode.nextElementSibling.querySelectorAll('.item-total').innerText = itemPrice);
+      this.parentNode.nextElementSibling.querySelector(
+        ".item-total"
+      ).innerText = itemPrice;
+
+      const newItemTotal = selectedQuantity * itemPrice;
+      //    console.log("newItemPrice: " ,this.parentNode.nextElementSibling.querySelectorAll('.item-total').innerText = newItemTotal);
+      this.parentNode.nextElementSibling.querySelector(
+        ".item-total"
+      ).innerText = newItemTotal;
+      updateTotal();
+    });
+  });
+  const checkoutBtn = document.querySelector('.customBut')
+  const confirm = document.querySelector('.confirm')
+  checkoutBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    if (total.innerText !== '0') {
+    confirm.classList.remove('none');
+  } else {
+    alert("You need to update the cart!")
+  } 
+  })
+
+  function updateTotal() {
+    let total = 0;
+
+    document.querySelectorAll(".item-total").forEach((itemTotal) => {
+      total += parseFloat(itemTotal.innerText);
+    });
+
+    document.getElementById("total").innerText = total;
+  }
+  
+ 
+
+
+</script>
