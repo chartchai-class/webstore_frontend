@@ -12,6 +12,13 @@ class BookModel {
       });
     });
   }
+
+  async getAllBooks() {
+    const query = "SELECT * FROM book";
+    const results = await this.executeQuery(query);
+    return results;
+  }
+
   async getPromos() {
     const query = "SELECT * FROM book WHERE bookPromo>0";
     const results = await this.executeQuery(query);
@@ -21,6 +28,13 @@ class BookModel {
   async getEachBook({ bookId }) {
     const query = "SELECT * FROM book WHERE bookId=?";
     const results = await this.executeQuery(query, [bookId]);
+    return results;
+  }
+
+  async bookForEachCategory({ categoryId }) {
+    const query =
+      "SELECT book.*,category.categoryName FROM book INNER JOIN category ON book.categoryId=category.categoryId  WHERE book.categoryId=?";
+    const results = await this.executeQuery(query, [categoryId]);
     return results;
   }
 }

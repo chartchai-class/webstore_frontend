@@ -24,106 +24,87 @@
   </ul>
 </div>
 
-<div class="category-body container">
-  <h1 class="text-center">Novels</h1>
-  <p class="text-center">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum fugit
-    reiciendis quae dolorem odio repudiandae magni sequi, sunt consequuntur
-    praesentium!
-  </p>
-
-  <div class="tab-content" id="pills-tabContent">
+<div class="category-body">
+  <div class="container">
+    <h1 class="text-center">All Books</h1>
+    <p class="text-center">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum fugit
+      reiciendis quae dolorem odio repudiandae magni sequi, sunt consequuntur
+      praesentium!
+    </p>
     <div
-      class="tab-pane fade show active"
-      id="pills-home"
-      role="tabpanel"
-      aria-labelledby="pills-home-tab"
-      tabindex="0"
-    >
-      <div class="row m-4">
-        <div class="col-lg-1"></div>
-        <div class="col-sm-6 col-md-4 col-lg-2">
-          <div class="book-card">
-            <img
-              src="../assets/images/n5.jpg"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3">
-              <h4 class="price">฿100</h4>
-              <p class="title">How to cat a monster</p>
-              <p class="author">Adam Wallet</p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-2"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-2">
-          <div class="book-card">
-            <img
-              src="../assets/images/n5.jpg"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3">
-              <h4 class="price">฿100</h4>
-              <p class="title">How to cat a monster</p>
-              <p class="author">Adam Wallet</p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-2"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-2">
-          <div class="book-card">
-            <img
-              src="../assets/images/n5.jpg"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3">
-              <h4 class="price"><span>฿200</span> &nbsp;฿100</h4>
-              <p class="title">How to cat a monster</p>
-              <p class="author">Adam Wallet</p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-2"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-2">
-          <div class="book-card">
-            <img
-              src="../assets/images/n5.jpg"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3">
-              <h4 class="price">฿100</h4>
-              <p class="title">How to cat a monster</p>
-              <p class="author">Adam Wallet</p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-3"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-2">
-          <div class="card book-card">
-            <img
-              src="../assets/images/n5.jpg"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3 card-body">
-              <h4 class="price">฿100</h4>
-              <p class="title">How to cat a monster</p>
-              <p class="author">Adam Wallet</p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-3"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-1"></div>
-      </div>
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 m-4"
+      id="bookList"
+    ></div>
+
+    <div class="text-center mt-4">
+      <button id="prevPageBtn" class="btn btn-primary mr-2">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <button id="nextPageBtn" class="btn btn-primary">
+        <i class="bi bi-arrow-right"></i>
+      </button>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const bookList = document.getElementById("bookList");
+    const prevPageBtn = document.getElementById("prevPageBtn");
+    const nextPageBtn = document.getElementById("nextPageBtn");
+
+    let currentPage = 1;
+    const booksPerPage = 5;
+
+    const books =<%- JSON.stringify(books) %>;
+    
+    function renderBooks(startIndex) {
+      bookList.innerHTML = "";
+      const endIndex = Math.min(startIndex + booksPerPage, books.length);
+      for (let i = startIndex; i < endIndex; i++) {
+        const book = books[i];
+        const bookCard = document.createElement("div");
+        bookCard.className = "col";
+        bookCard.innerHTML = `
+        <div class="book-card">
+          <img
+            src="http://localhost:5001/${book.bookCover}"
+            alt=""
+            class="bookimg d-block mx-auto"
+          />
+          <div class="book-content mt-3">
+            <h4 class="price">₿${book.bookPrice}</h4>
+            <p class="title">${book.bookTitle}</p>
+            <p class="author">${book.bookAuthor}</p>
+            <a href="#" class="cart">ADD TO CART</a>
+            <i class="bi bi-heart ms-2"></i>
+          </div>
+        </div>
+        `;
+        bookList.appendChild(bookCard);
+      }
+    }
+
+    if (books.length > 0) {
+      renderBooks(0);
+
+      prevPageBtn.addEventListener("click", function () {
+        if (currentPage > 1) {
+          currentPage--;
+          renderBooks((currentPage - 1) * booksPerPage);
+        }
+      });
+
+      nextPageBtn.addEventListener("click", function () {
+        const totalPages = Math.ceil(books.length / booksPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderBooks((currentPage - 1) * booksPerPage);
+        }
+      });
+    } else {
+      console.log("No books available");
+    }
+  });
+</script>

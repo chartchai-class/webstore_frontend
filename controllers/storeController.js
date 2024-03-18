@@ -7,7 +7,6 @@ const bookModel = new BookModel();
 exports.view = async (req, res) => {
   try {
     const categories = await categoryModel.getAllCategories();
-
     res.render("index", { categories });
   } catch (error) {
     console.error("Error", error);
@@ -17,8 +16,8 @@ exports.view = async (req, res) => {
 exports.categories = async (req, res) => {
   try {
     const categories = await categoryModel.getAllCategories();
-
-    res.render("categories", { categories });
+    const books = await bookModel.getAllBooks();
+    res.render("categories", { categories, books });
   } catch (error) {
     console.error("Error", error);
   }
@@ -44,6 +43,21 @@ exports.promo = async (req, res) => {
     res.render("promotion", { categories, promo });
   } catch (error) {
     console.error("Error", error);
+  }
+};
+
+exports.category = async (req, res) => {
+  try {
+    const categories = await categoryModel.getAllCategories();
+    const categoryId = parseInt(req.params.categoryId);
+    const category = categories.find(
+      (category) => category.categoryId === categoryId
+    );
+    const categoryName = category.categoryName;
+    const books = await bookModel.bookForEachCategory({ categoryId });
+    res.render("category-details", { categories, books, categoryName });
+  } catch (err) {
+    console.error("Error", err);
   }
 };
 

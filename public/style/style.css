@@ -30,8 +30,11 @@ h3.d-title{
 h3.subtitle{
   color:var(--primary-color-2);
 }
+.bgcolor,.category-body,.book-header {
+background-image: url("../../assets/images/GradientBackground.svg"); 
+padding: 20px 0;
+}
 body {
-  background-image: url("../../assets/images/GradientBackground.svg");
   font-family: "Montserrat";
   margin: 0;
   padding: 0;
@@ -91,7 +94,7 @@ span {
   padding: 20px;
   background-color: white;
   margin-bottom: 20px;
-
+  box-shadow: 12px 6px 10px rgba(0, 0, 0, 0.1);
 }
 .bookimg{
   width: 150px;
@@ -115,7 +118,7 @@ span {
   font-size: 20px;
   font-weight: bold;
 }
-.cart{
+.cart,.seeMoreBtn{
   padding: 10px;
   background-color: var(--primary-color-1);
   text-decoration: none;
@@ -196,3 +199,7 @@ span {
  margin-left: 4px;
 }
 
+.main{
+  background-color: #ffffff;
+  padding: 40px 0;
+}
