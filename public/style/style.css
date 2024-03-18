@@ -30,8 +30,12 @@ h3.d-title{
 h3.subtitle{
   color:var(--primary-color-2);
 }
+.bgcolor,.category-body,.book-header {
+background-image: url("../../assets/images/GradientBackground.svg"); 
+background-size: cover;
+padding: 20px 0;
+}
 body {
-  background-image: url("../../assets/images/GradientBackground.svg");
   font-family: "Montserrat";
   margin: 0;
   padding: 0;
@@ -58,8 +62,8 @@ body {
 
 .buttpurple {
   width: 100%;
-  padding-top: 15 px;
-  padding-top: 20 px;
+  padding: 15px;
+  margin-bottom: 20px;
   color: antiquewhite;
 
   border: none;
@@ -91,7 +95,7 @@ span {
   padding: 20px;
   background-color: white;
   margin-bottom: 20px;
-
+  box-shadow: 12px 6px 10px rgba(0, 0, 0, 0.1);
 }
 .bookimg{
   width: 150px;
@@ -112,10 +116,10 @@ span {
 }
 
 .book-content .title{
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
-.cart{
+.cart,.seeMoreBtn{
   padding: 10px;
   background-color: var(--primary-color-1);
   text-decoration: none;
@@ -139,6 +143,10 @@ span {
 
 .card-body{
   background-color: var(--primary-color-1);
+}
+
+.title{
+  font-size: 16px;
 }
 /* Header */
 .header{
@@ -196,3 +204,16 @@ span {
  margin-left: 4px;
 }
 
+.main{
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+.customBut{
+  width:200px;
+  height:50px;
+  background-color: #625CB8;
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+  padding: 3px;
+}

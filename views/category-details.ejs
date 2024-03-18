@@ -1,0 +1,58 @@
+<section class="book-header">
+  <div class="container">
+    <div class="row">
+      <!--left content-->
+      <div class="col">
+        <h1><%= categoryName %></h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum nisi
+          quas nobis fuga ex aperiam dolorum beatae quae fugit inventore.
+        </p>
+      </div>
+
+      <!--right content-->
+      <div class="col"></div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+  <div class="container">
+    <h3><%= categoryName %></h3>
+
+    <div class="row m-4">
+      <% books.forEach(book => { %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <form action="/addToBill" method="post">
+          <a href="/details/<%= book.bookId %>" class="card-link">
+            <div class="book-card">
+              <img
+                src="http://localhost:5001/<%= book.bookCover %>"
+                alt=""
+                class="bookimg d-block mx-auto"
+              />
+              <div class="book-content mt-3">
+                <h4 class="price">₿<%= book.bookPrice %></h4>
+                <p class="title"><%= book.bookTitle %></p>
+                <p class="author"><%= book.bookAuthor %></p>
+                <input type="hidden" name="bookId" value="<%= book.bookId %>" />
+                <input
+                  type="hidden"
+                  name="billPrice"
+                  value="<%= book.bookPrice %>"
+                />
+                <button type="submit" class="cart">ADD TO CART</button>
+                <i class="bi bi-heart ms-2"></i>
+              </div>
+            </div>
+          </a>
+        </form>
+      </div>
+      <% }) %>
+    </div>
+
+    <div class="text-center">
+      <button id="seeMoreBtn" class="seeMoreBtn">See More</button>
+    </div>
+  </div>
+</div>
