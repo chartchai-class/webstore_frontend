@@ -37,6 +37,12 @@ class BookModel {
     const results = await this.executeQuery(query, [categoryId]);
     return results;
   }
+
+  async addSale_Count(bookId) {
+    const query = `UPDATE bookstore.book SET sale_count = sale_count + 1 WHERE bookId = ?`;
+    const results = await this.executeQuery(query, [bookId]);
+    return results;
+  }
 }
 
 module.exports = BookModel;

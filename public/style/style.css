@@ -32,6 +32,7 @@ h3.subtitle{
 }
 .bgcolor,.category-body,.book-header {
 background-image: url("../../assets/images/GradientBackground.svg"); 
+background-size: cover;
 padding: 20px 0;
 }
 body {
@@ -61,8 +62,8 @@ body {
 
 .buttpurple {
   width: 100%;
-  padding-top: 15 px;
-  padding-top: 20 px;
+  padding: 15px;
+  margin-bottom: 20px;
   color: antiquewhite;
 
   border: none;
@@ -115,7 +116,7 @@ span {
 }
 
 .book-content .title{
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 .cart,.seeMoreBtn{
@@ -142,6 +143,10 @@ span {
 
 .card-body{
   background-color: var(--primary-color-1);
+}
+
+.title{
+  font-size: ;
 }
 /* Header */
 .header{

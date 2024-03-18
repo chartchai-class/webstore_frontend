@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const expressLayouts = require("express-ejs-layouts");
 
 const port = 6001;
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layout/main");

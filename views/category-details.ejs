@@ -23,22 +23,30 @@
     <div class="row m-4">
       <% books.forEach(book => { %>
       <div class="col-sm-6 col-md-4 col-lg-3">
-        <a href="/details/<%= book.bookId %>" class="card-link">
-          <div class="book-card">
-            <img
-              src="http://localhost:5001/<%= book.bookCover %>"
-              alt=""
-              class="bookimg d-block mx-auto"
-            />
-            <div class="book-content mt-3">
-              <h4 class="price">₿<%= book.bookPrice %></h4>
-              <p class="title"><%= book.bookTitle %></p>
-              <p class="author"><%= book.bookAuthor %></p>
-              <a href="#" class="cart">ADD TO CART</a>
-              <i class="bi bi-heart ms-2"></i>
+        <form action="/addToBill" method="post">
+          <a href="/details/<%= book.bookId %>" class="card-link">
+            <div class="book-card">
+              <img
+                src="http://localhost:5001/<%= book.bookCover %>"
+                alt=""
+                class="bookimg d-block mx-auto"
+              />
+              <div class="book-content mt-3">
+                <h4 class="price">₿<%= book.bookPrice %></h4>
+                <p class="title"><%= book.bookTitle %></p>
+                <p class="author"><%= book.bookAuthor %></p>
+                <input type="hidden" name="bookId" value="<%= book.bookId %>" />
+                <input
+                  type="hidden"
+                  name="billPrice"
+                  value="<%= book.bookPrice %>"
+                />
+                <button type="submit" class="cart">ADD TO CART</button>
+                <i class="bi bi-heart ms-2"></i>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </form>
       </div>
       <% }) %>
     </div>

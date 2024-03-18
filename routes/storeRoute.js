@@ -3,6 +3,7 @@ const router = express.Router();
 const storeController = require("../controllers/storeController");
 
 router.get("/", storeController.view);
+router.post("/addToBill", storeController.addtoBill);
 
 router.get("/categories", storeController.categories);
 router.get("/categories/:categoryId", storeController.category);

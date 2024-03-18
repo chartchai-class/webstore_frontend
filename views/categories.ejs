@@ -55,10 +55,10 @@
     const nextPageBtn = document.getElementById("nextPageBtn");
 
     let currentPage = 1;
-    const booksPerPage = 5;
+    const booksPerPage = 15;
 
     const books =<%- JSON.stringify(books) %>;
-    
+
     function renderBooks(startIndex) {
       bookList.innerHTML = "";
       const endIndex = Math.min(startIndex + booksPerPage, books.length);
