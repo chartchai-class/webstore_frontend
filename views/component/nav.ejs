@@ -1,44 +1,80 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;" >
+<nav
+  class="navbar navbar-expand-lg navbar-light navbar-fixed-top"
+  style="background-color: white"
+>
   <div class="container-fluid">
-    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
     </button>
-      <a class="navbar-brand " href="#">
-          <img src="../../assets/images/BrandName.png" alt="Brand Logo">
-      </a>
+    <a class="navbar-brand" href="/">
+      <img src="../../assets/images/BrandName.png" alt="Brand Logo" />
+    </a>
 
-      
-
-      <div class="collapse  navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav text-center me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Promotions</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Category
-                  </a>
-                  <ul class=" text-center ms-4 dropdown-menu sec-drop" aria-labelledby="navbarDropdown">
-                      <li ><a class="dropdown-item" href="#">Novels</a></li>
-                      <li><a class="dropdown-item" href="#">Kids Books</a></li>
-                      <li><a class="dropdown-item" href="#">Manga</a></li>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/contactUs">Contact Us</a>
-              </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/promotions"
+            >Promotions</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Category
+          </a>
+          <ul
+            class="text-center ms-4 dropdown-menu sec-drop"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a class="dropdown-item" href="/categories">All Categories</a>
+            </li>
+            <% categories.forEach(category => { %>
+            <li>
+              <a
+                href="/categories/<%= category.categoryId %>"
+                class="dropdown-item"
+              >
+                <%= category.categoryName%>
+              </a>
+            </li>
+            <% }) %>
           </ul>
-          <form class="d-flex">
-            <div class="customSearchBar">
-                <button class="customSearchBarLen" type="submit">
-                    <img src="../../assets/images/lens.svg" alt="Search Icon">
-                </button>
-                <input class="customSearchBartext" type="search" placeholder="Search" aria-label="Search">
-            </div>
-        </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contactUs"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </div>
+    <form class="d-flex">
+      <div class="customSearchBar">
+        <button class="customSearchBarLen" type="submit">
+          <img src="../../assets/images/lens.svg" alt="Search Icon" />
+        </button>
+        <input
+          class="customSearchBartext"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
       </div>
-     
-
+    </form>
 
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -49,22 +85,7 @@
                 </div>
             </a>
         </li>
+  
     </ul>
   </div>
-  <script>
-//   document.querySelector('.navbar-toggler').addEventListener('click', function () {
-     
-        // if (this.classList.contains('collapsed')) {
-        //     document.querySelector('.navbar-nav').style.backgroundColor = 'white';
-        // }
-        // } else {
-        //     // var imageUrl = '../../assets/images/Pinkbb.jpg';
-        //     // document.querySelector('.navbar-nav').style.backgroundImage= 'url(' +imageUrl+ ')';
-        //     // document.querySelector('.navbar-nav').style.backgroundSize = 'cover';
-        //     // document.querySelector('.sec-drop').style.backgroundImage= 'url(' +imageUrl+ ')';
-        //     // document.querySelector('.sec-drop').style.backgroundSize = 'cover';
-        //     // document.querySelector('.sec-drop').style.border= 'none';
-        // }
-   // });
-</script>
 </nav>
