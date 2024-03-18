@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layout/main");
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.use("/assets", express.static("assets"));
 app.use("/public", express.static("public"));
