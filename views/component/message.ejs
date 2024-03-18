@@ -1,0 +1,140 @@
+<style>
+    .container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #eee;
+    margin-bottom: 10px;
+}
+
+.testimonial-info {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.testimonial-name {
+    font-size: 18px;
+    color: #555;
+}
+
+.testimonial-role {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.testimonial-rating {
+    color: #f5a623;
+    font-size: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background: none;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.carousel-control-prev-icon:before {
+    content: '<';
+}
+
+.carousel-control-next-icon:before {
+    content: '>';
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .clients-say {
+        width:85%;
+    }
+}
+
+</style>
+<div class="container clients-say">
+    <h2 class="montserrat-title">What Our Clients Say About Us</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="testimonial">
+                    <img class="testimonial-image" src="../../assets/img/satoru.jpg" alt="satoru">
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">Satoru</p>
+                        <p class="testimonial-role">a handsome guy</p>
+                        <p class="testimonial-text">"I'm happy to see my book here."</p>
+                        <p class="testimonial-rating">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat .carousel-item for each testimonial -->
+            <div class="carousel-item">
+                <div class="testimonial">
+                    <img class="testimonial-image" src="../../assets/img/lucas.jpg" alt="lucas">
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">Lucas</p>
+                        <p class="testimonial-role">actor</p>
+                        <p class="testimonial-text">"It was a very good experience"</p>
+                        <p class="testimonial-rating">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="testimonial">
+                    <img class="testimonial-image" src="../../assets/img/zoro.jpg" alt="zoro">
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">Zoro</p>
+                        <p class="testimonial-role">Swordman</p>
+                        <p class="testimonial-text">"books are very good and nice"</p>
+                        <p class="testimonial-rating">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
