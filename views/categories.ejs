@@ -1,0 +1,116 @@
+<div class="header">
+  <h1>Explore Categories</h1>
+</div>
+
+<div class="book-nav">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <% categories.forEach(category => { %>
+    <li class="nav-item me-3" role="presentation">
+      <button
+        class="nav-link active"
+        id="pills-home-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-home"
+        type="button"
+        role="tab"
+        aria-controls="pills-home"
+        aria-selected="true"
+      >
+        <%= category.categoryName %>
+      </button>
+    </li>
+
+    <% }) %>
+  </ul>
+</div>
+
+<div class="category-body">
+  <div class="container">
+    <h1 class="text-center">All Books</h1>
+    <p class="text-center">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum fugit
+      reiciendis quae dolorem odio repudiandae magni sequi, sunt consequuntur
+      praesentium!
+    </p>
+    <div
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 m-4"
+      id="bookList"
+    ></div>
+
+    <div class="text-center mt-4">
+      <button id="prevPageBtn" class="btn btn-primary mr-2">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <button id="nextPageBtn" class="btn btn-primary">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const bookList = document.getElementById("bookList");
+    const prevPageBtn = document.getElementById("prevPageBtn");
+    const nextPageBtn = document.getElementById("nextPageBtn");
+
+    let currentPage = 1;
+    const booksPerPage = 15;
+
+    const books =<%- JSON.stringify(books) %>;
+
+    function renderBooks(startIndex) {
+      bookList.innerHTML = "";
+      const endIndex = Math.min(startIndex + booksPerPage, books.length);
+      for (let i = startIndex; i < endIndex; i++) {
+        const book = books[i];
+        const bookCard = document.createElement("div");
+        bookCard.className = "col";
+        bookCard.innerHTML = `
+        <form action="/addToBill" method="post">
+          <a href="/details/${book.bookId}" class="card-link">
+          <div class="book-card">
+          <img
+            src="http://localhost:5001/${book.bookCover}"
+            alt=""
+            class="bookimg d-block mx-auto"
+          />
+          <div class="book-content mt-3">
+            <h4 class="price">₿${book.bookPrice}</h4>
+            <p class="title">${book.bookTitle}</p>
+            <p class="author">${book.bookAuthor}</p>
+            <input type="hidden" name="bookId" value="${book.bookId}">
+            <input type="hidden" name="billPrice" value="${book.bookPrice}">
+            <button type="submit" class="cart">ADD TO CART</button>
+            <i class="bi bi-heart ms-2"></i>
+          </div>
+        </div>
+        </a>
+        </form>
+        `;
+        bookList.appendChild(bookCard);
+      }
+    }
+
+    if (books.length > 0) {
+      renderBooks(0);
+
+      prevPageBtn.addEventListener("click", function () {
+        if (currentPage > 1) {
+          currentPage--;
+          renderBooks((currentPage - 1) * booksPerPage);
+        }
+      });
+
+      nextPageBtn.addEventListener("click", function () {
+        const totalPages = Math.ceil(books.length / booksPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderBooks((currentPage - 1) * booksPerPage);
+        }
+      });
+    } else {
+      console.log("No books available");
+    }
+  });
+</script>

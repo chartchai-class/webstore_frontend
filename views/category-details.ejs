@@ -1,0 +1,100 @@
+<section class="book-header">
+  <div class="container pt-2 g-2">
+    <div class="row align-items-center">
+      <!--left content-->
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="p-3">
+          <h1><%= categoryName %></h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum
+            nisi quas nobis fuga ex aperiam dolorum beatae quae fugit inventore.
+          </p>
+          <button class="btn btn-dark seeMoreBtn">See More</button>
+        </div>
+      </div>
+
+      <!--right content-->
+      <div class="col-lg-6 col-md-12 col-sm-12 home__images">
+        <!--image Slider-->
+        <div class="home__swiper swiper">
+          <div class="swiper-wrapper">
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/images/n5.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/CaseClosed.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/DragonBall.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/JujutsuKaisen.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+  <div class="container">
+    <h3><%= categoryName %></h3>
+
+    <div class="row m-4">
+      <% books.forEach(book => { %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <form action="/addToBill" method="post">
+          <a href="/details/<%= book.bookId %>" class="card-link">
+            <div class="book-card">
+              <img
+                src="http://localhost:5001/<%= book.bookCover %>"
+                alt=""
+                class="bookimg d-block mx-auto"
+              />
+              <div class="book-content mt-3">
+                <h4 class="price">₿<%= book.bookPrice %></h4>
+                <p class="title"><%= book.bookTitle %></p>
+                <p class="author"><%= book.bookAuthor %></p>
+                <input type="hidden" name="bookId" value="<%= book.bookId %>" />
+                <input
+                  type="hidden"
+                  name="billPrice"
+                  value="<%= book.bookPrice %>"
+                />
+                <button type="submit" class="cart">ADD TO CART</button>
+                <i class="bi bi-heart ms-2"></i>
+              </div>
+            </div>
+          </a>
+        </form>
+      </div>
+      <% }) %>
+    </div>
+
+    <div class="text-center">
+      <button id="seeMoreBtn" class="seeMoreBtn">See More</button>
+    </div>
+  </div>
+</div>
+
+<script></script>

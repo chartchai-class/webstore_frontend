@@ -1,1 +1,42 @@
-<h1>Promotion</h1>
+<div class="bgcolor">
+    <div class="container"> <!-- heading and navigation -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <h1>Promotions</h1>
+          </li>
+          <% categories.forEach(category => { %>
+              <li class="nav-item">
+                  <a class="nav-link" href="#"><%= category.categoryName %></a>
+                </li>
+          <% }) %>
+          </li>
+        </ul>
+      
+        <div class="row m-4">
+          <% promo.forEach(promo => { %>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <form action="/addToBill" method="post">
+                  <a href="/details/<%= promo.bookId %>" class="card-link">
+                    <div class="book-card">
+                        <img src="http://localhost:5001/<%= promo.bookCover %>" alt="" class="bookimg d-block mx-auto">
+                        <div class="book-content mt-3">
+                            
+                            <h4 class="price">₿ <s><%= promo.bookPrice %></s>  <%= promo.bookPromo %> </h4>
+                            <p class="title"><%= promo.bookTitle %></p>
+                            <p class="author"><%= promo.bookAuthor %></p>
+                            <input type="hidden" name="bookId" value="<%= promo.bookId %>">
+                            <input type="hidden" name="billPrice" value="<%= promo.bookPrice %>">
+                            <button type="submit" class="cart">ADD TO CART</button>
+                            <i class="bi bi-heart ms-2"></i>
+                      </div>
+                    </div>
+                </a>
+                </form>
+              </div>
+          <% }) %>
+         
+        </div>
+      </div>
+      
+</div>
+
