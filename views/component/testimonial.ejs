@@ -1,0 +1,160 @@
+<style>
+  /* ------------ GOOGLE FONTS ------------ */
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+  /* ----------- SLIDER ------------ */
+  .swiper {
+    width: 100%;
+  }
+
+  .swiper-wrapper {
+    width: 100%;
+    height: 35em;
+    display: flex;
+    align-items: center;
+  }
+
+  .card {
+    width: 20em;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 2em;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+    padding: 2em 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0 2em;
+  }
+
+  .swiper-slide:not(.swiper-slide-active) {
+    filter: blur(1px);
+  }
+
+  .card__image {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: 5px solid var(--color);
+    padding: 3px;
+    margin-bottom: 2em;
+  }
+
+  .card__image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .card__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .card__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    top: 0.2em;
+  }
+
+  .card__name {
+    color: var(--color);
+  }
+
+  .card__text {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 1em 0;
+  }
+
+  .card__rating {
+    color: orange;
+    border-color: red;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+</style>
+
+<section
+  class="swiper mySwiper"
+  style="
+    background: linear-gradient(to bottom, #bab9fd, rgba(249, 200, 212, 0.37));
+  "
+>
+  <h2 class="montserrat-title text-center">What Our Clients Say About Us</h2>
+  <div class="swiper-wrapper">
+    <div class="card swiper-slide">
+      <div class="card__image">
+        <img
+          class="testimonial-image"
+          src="../../assets/img/satoru.jpg"
+          alt="satoru"
+        />
+      </div>
+
+      <div class="card__content">
+        <span class="card__name">Satoru</span>
+        <span class="card__title">a handsome guy</span>
+        <p class="card__text">"I'm happy to see my book here."</p>
+        <p class="card__rating">★★★★★</p>
+      </div>
+    </div>
+
+    <div class="card swiper-slide">
+      <div class="card__image">
+        <img
+          class="testimonial-image"
+          src="../../assets/img/lucas.jpg"
+          alt="lucas"
+        />
+      </div>
+
+      <div class="card__content">
+        <span class="card__name">Lucas</span>
+        <span class="card__title">actor</span>
+        <p class="card__text">"It was a very good experience"</p>
+        <p class="card__rating">★★★★★</p>
+      </div>
+    </div>
+
+    <div class="card swiper-slide">
+      <div class="card__image">
+        <img
+          class="testimonial-image"
+          src="../../assets/img/zoro.jpg"
+          alt="zoro"
+        />
+      </div>
+
+      <div class="card__content">
+        <span class="card__name">Roronoa Zoro</span>
+        <span class="card__title">Swordman</span>
+        <p class="card__text">"books are very good and nice"</p>
+        <p class="card__rating">★★★★★</p>
+      </div>
+    </div>
+
+    <div class="card swiper-slide">
+      <div class="card__image">
+        <img
+          class="testimonial-image"
+          src="../../assets/img/lucas.jpg"
+          alt="lucas"
+        />
+      </div>
+
+      <div class="card__content">
+        <span class="card__name">Lucas</span>
+        <span class="card__title">actor</span>
+        <p class="card__text">"It was a very good experience"</p>
+        <p class="card__rating">★★★★★</p>
+      </div>
+    </div>
+  </div>
+</section>
