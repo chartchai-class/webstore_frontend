@@ -1,0 +1,63 @@
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<style>
+    .sliderPic{
+        width:200px;
+        height:auto;
+    }
+
+    .otherNovels{
+        color:#625CB8;
+        size:25px;
+    }
+
+</style>
+<div class="swiper mySwiper">
+    <p class="montserrat-title otherNovels text-center"><b>Other Novels</b></p><br>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="../../assets/img/DragonBall.jpg" class="sliderPic" alt="Book 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/DrStone.jpg" class="sliderPic" alt="Book 2">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/JujutsuKaisen.jpg" class="sliderPic" alt="Book 3">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/AttackOnTitan.jpg" class="sliderPic" alt="Book 4">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/Naruto.jpg" class="sliderPic" alt="Book 5">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/OshiNoKo.jpg" class="sliderPic" alt="Book 6">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/Haikyu.jpg" class="sliderPic" alt="Book 7">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/CaseClosed.jpg" class="sliderPic" alt="Book 8">
+        </div>
+        <div class="swiper-slide">
+            <img src="../../assets/img/OmniscientReaderViewpoint.jpg" class="sliderPic" alt="Book 9">
+        </div>
+    </div>
+    <br><br>
+    <div class="swiper-pagination"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        centeredSlides: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
