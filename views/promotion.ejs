@@ -20,7 +20,8 @@
                     <div class="book-card">
                         <img src="http://localhost:5001/<%= promo.bookCover %>" alt="" class="bookimg d-block mx-auto">
                         <div class="book-content mt-3">
-                            <h4 class="price">₿<%= promo.bookPromo %></h4>
+                            
+                            <h4 class="price">₿ <s><%= promo.bookPrice %></s>  <%= promo.bookPromo %> </h4>
                             <p class="title"><%= promo.bookTitle %></p>
                             <p class="author"><%= promo.bookAuthor %></p>
                             <input type="hidden" name="bookId" value="<%= promo.bookId %>">

@@ -39,7 +39,7 @@ exports.addtoBill = async (req, res) => {
   // console.log("req.body ",req.body);
   const bookId = req.body.bookId;
   // console.log("req.body.bookId",bookId);
-  const quantity = 1;
+  const quantity = req.body.quantity ? req.body.quantity : 1;
   const billPrice = req.body.billPrice;
   try {
     const salecount = await bookModel.addSale_Count(bookId);

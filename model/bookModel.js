@@ -44,5 +44,4 @@ class BookModel {
     return results;
   }
 }
-
 module.exports = BookModel;
