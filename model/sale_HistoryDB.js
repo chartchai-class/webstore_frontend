@@ -23,6 +23,7 @@ class addToCart extends BaseSQLModel {
     const results = await this.executeQuery(sql, params);
     return results;
   }
+ 
   
 }
 

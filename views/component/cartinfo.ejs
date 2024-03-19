@@ -40,7 +40,7 @@
             <span class="item-total"
               ><%= info.quantity * info.billPrice %></span
             >
-            <button class="btn delete-btn" >
+            <button class="btn delete-btn"  data-bill-id="<%= info.billId %>">
               <i class="fa-solid fa-trash"></i>
             </button>
           </td>
@@ -136,11 +136,19 @@
 
 deleteButtons.forEach((button) => {
   button.addEventListener("click", function () {
+    const billId = this.dataset.billId;
+    deleteBookId(billId);
     this.parentElement.parentElement.remove();
     console.log("deleted row");
     updateTotal(); 
+    
   });
 });
+function deleteBookId(billId) {
+   fetch('/deleteBook',{
+    method:'POST',headers:{ 'Content-Type': 'application/json' },body:JSON.stringify({billId:billId})
+   })
+}
 
   quantitySelects.forEach((select) => {
     select.addEventListener("change", function () {

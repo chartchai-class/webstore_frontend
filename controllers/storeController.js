@@ -23,6 +23,12 @@ exports.getCart = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+exports.deleteBook= async(req,res)=>{
+  const billId = req.body.billId;
+  const deleteFun=await billHistoryModel.deleteBook(billId);
+   res.redirect('/addtocart');
+
+}
 
 exports.view = async (req, res) => {
   try {
