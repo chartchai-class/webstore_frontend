@@ -24,5 +24,10 @@ class BillHistoryModel {
     const results = await this.executeQuery(query, values);
     return results;
   }
+  async deleteBook(billId){
+    const query = `DELETE FROM sale_History WHERE billId=${billId}`;
+    const results = await this.executeQuery(query, [billId]);
+    return results;
+  }
 }
 module.exports = BillHistoryModel;

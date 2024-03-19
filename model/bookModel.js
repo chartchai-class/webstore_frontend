@@ -43,6 +43,7 @@ class BookModel {
     const results = await this.executeQuery(query, [bookId]);
     return results;
   }
+ 
 }
 
 module.exports = BookModel;
