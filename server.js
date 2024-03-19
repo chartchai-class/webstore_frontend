@@ -29,6 +29,10 @@ app.use(methodOverride("_method"));
 
 const routes = require("./routes/storeRoute");
 app.use("/", routes);
+app.use((req,res)=>{
+    res.status(404);
+    res.render("404",{layout: false});
+});
 
 app.listen(port, () => {
   console.log(`webstore_frontend is listening at ${port}`);
