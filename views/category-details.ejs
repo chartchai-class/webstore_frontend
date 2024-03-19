@@ -1,17 +1,57 @@
 <section class="book-header">
-  <div class="container">
-    <div class="row">
+  <div class="container pt-2 g-2">
+    <div class="row align-items-center">
       <!--left content-->
-      <div class="col">
-        <h1><%= categoryName %></h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum nisi
-          quas nobis fuga ex aperiam dolorum beatae quae fugit inventore.
-        </p>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="p-3">
+          <h1><%= categoryName %></h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum
+            nisi quas nobis fuga ex aperiam dolorum beatae quae fugit inventore.
+          </p>
+          <button class="btn btn-dark seeMoreBtn">See More</button>
+        </div>
       </div>
 
       <!--right content-->
-      <div class="col"></div>
+      <div class="col-lg-6 col-md-12 col-sm-12 home__images">
+        <!--image Slider-->
+        <div class="home__swiper swiper">
+          <div class="swiper-wrapper">
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/images/n5.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/CaseClosed.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/DragonBall.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img
+                src="../assets/img/JujutsuKaisen.jpg"
+                alt="image"
+                class="home__img"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -56,3 +96,5 @@
     </div>
   </div>
 </div>
+
+<script></script>

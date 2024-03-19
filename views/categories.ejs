@@ -67,7 +67,9 @@
         const bookCard = document.createElement("div");
         bookCard.className = "col";
         bookCard.innerHTML = `
-        <div class="book-card">
+        <form action="/addToBill" method="post">
+          <a href="/details/${book.bookId}" class="card-link">
+          <div class="book-card">
           <img
             src="http://localhost:5001/${book.bookCover}"
             alt=""
@@ -77,10 +79,14 @@
             <h4 class="price">₿${book.bookPrice}</h4>
             <p class="title">${book.bookTitle}</p>
             <p class="author">${book.bookAuthor}</p>
-            <a href="#" class="cart">ADD TO CART</a>
+            <input type="hidden" name="bookId" value="${book.bookId}">
+            <input type="hidden" name="billPrice" value="${book.bookPrice}">
+            <button type="submit" class="cart">ADD TO CART</button>
             <i class="bi bi-heart ms-2"></i>
           </div>
         </div>
+        </a>
+        </form>
         `;
         bookList.appendChild(bookCard);
       }

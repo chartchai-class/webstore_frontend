@@ -124,6 +124,7 @@ span {
   background-color: var(--primary-color-1);
   text-decoration: none;
   color: #fff;
+  margin-bottom: 2rem;
 }
 .add{
   padding: 10px;
@@ -216,4 +217,29 @@ span {
   border-style: none;
   border-radius: 20px;
   padding: 3px;
+}
+
+home__swiper{
+  margin: initial;
+  width: 600px;
+  height: 300px;
+}
+home__images{
+  display: grid;
+}
+article.home__article{
+  width: 280px;
+}
+.home__img{
+  width: 220px;
+  transition: scale .4s;
+}
+
+.home__article{
+  scale: .8;
+}
+
+.swiper-slide-active,
+.swiper-slide-duplicate-active{
+  scale: 1;
 }

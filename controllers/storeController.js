@@ -27,7 +27,8 @@ exports.getCart = async (req, res) => {
 exports.view = async (req, res) => {
   try {
     const categories = await categoryModel.getAllCategories();
-    res.render("index", { categories });
+    const promo = await bookModel.getPromos();
+    res.render("index", { categories, promo });
   } catch (error) {
     console.error("Error", error);
   }
