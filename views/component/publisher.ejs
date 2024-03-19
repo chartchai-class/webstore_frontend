@@ -1,19 +1,28 @@
-<div class="publisher">
-    <h3 class="montserrat-title text-center" style="font-size: 25px;">Popular Publisher</h3>
-    <div class="publisherPic">
-        <img src="../../assets/img/kadokawa.png" class="" alt="kadokawa" 
-        style="margin-left: 10px;margin-right: 10px;">
-        <img src="../../assets/img/Madman.png" class="" alt="madman"
-        style="margin-left: 10px;margin-right: 10px;">
-        <img src="../../assets/img/Yen_Press.png" class="" alt="yenpress"
-        style="margin-left: 10px;margin-right: 10px;">
+<div style="background-color: white;">
+    <div class="publisher">
+        <h3 class="montserrat-title text-center" style="font-size: 25px;">Popular Publisher</h3>
+        <div class="publisherPic center">
+            <img src="../../assets/img/kadokawa.png" class="pubPic" alt="kadokawa" 
+            style="margin-left: 10px;margin-right: 10px;">
+            <img src="../../assets/img/Madman.png" class="pubPic" alt="madman"
+            style="margin-left: 10px;margin-right: 10px;">
+            <img src="../../assets/img/Yen_Press.png" class="pubPic" alt="yenpress"
+            style="margin-left: 10px;margin-right: 10px;">
+        </div>
     </div>
-</div>
+    
+    <style>
+        .publisherPic {
+        display: flex;
+        justify-content: center;
+        transform: scale(0.5);
+        }
 
-<style>
-    .publisherPic {
-    display: flex;
-    justify-content: center;
-    transform: scale(0.5);
-    }
-</style>
+        @media screen and (max-width: 800px) {
+            .pubPic {
+            width: 50%;
+            height:auto;
+            }
+        }
+    </style>
+</div>
