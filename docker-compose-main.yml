@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  webstoreFrontend_main:
+    image: 29ayenyeinsan/webstore_frontend
+  
+    ports:
+      - 6000:6001
+
+
+
+
+
