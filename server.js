@@ -8,7 +8,7 @@ const methodOverride = require("method-override");
 
 const addToCart = require("./model/sale_HistoryDB");
 
-const port = 6001;
+const port = 4001;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use("/views", express.static("views"));
