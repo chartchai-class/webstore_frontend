@@ -15,7 +15,7 @@ jobs:
             DB_PASSWORD: ${{ secrets.RDS_USERNAME}}
             DB_PORT: ${{ secrets.RDS_PORT }}
             DB_NAME: bookstore
-            SERVER_PORT: 4000
+            SERVER_PORT: 4001
         steps: 
             - name: Checkout 
               uses: actions/checkout@v3
